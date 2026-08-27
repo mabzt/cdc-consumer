@@ -1,0 +1,12 @@
+FROM apache/spark:3.5.6
+
+USER root
+
+# S3A JARs — must match Hadoop 3.3.4 bundled in spark:3.5.6
+COPY jars/hadoop-aws-3.3.4.jar /opt/spark/jars/
+COPY jars/aws-java-sdk-bundle-1.12.262.jar /opt/spark/jars/
+
+# Bake spark-defaults.conf into the image — no volume mount needed
+COPY spark-config/spark-defaults.conf /opt/spark/conf/spark-defaults.conf
+
+USER spark
