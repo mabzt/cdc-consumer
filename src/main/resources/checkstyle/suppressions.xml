@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE suppressions PUBLIC
+        "-//Checkstyle//DTD SuppressionFilter Configuration 1.2//EN"
+        "https://checkstyle.org/dtds/suppressions_1_2.dtd">
+
+<suppressions>
+    <!-- Suppress Lombok-generated code -->
+    <suppress files=".*[\\/]lombok[\\/].*" checks=".*"/>
+
+    <!-- Suppress tests from harsh rules -->
+    <suppress files=".*Test\.java" checks="Javadoc.*"/>
+
+    <!-- Suppress missing package-info.java warnings -->
+    <suppress checks="JavadocPackage.*"/>
+
+    <suppress
+            files="package-info\.java"
+            checks="JavadocPackage"/>
+
+
+
+</suppressions>

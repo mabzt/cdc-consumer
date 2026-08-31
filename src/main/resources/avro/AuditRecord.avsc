@@ -1,0 +1,16 @@
+{
+  "type": "record",
+  "name": "AuditRecord",
+  "namespace": "com.maison.mabs.cdcconsumer.audit.avro",
+  "fields": [
+    { "name": "tableName",   "type": "string" },
+    { "name": "operation",   "type": "string" },
+    { "name": "before",      "type": ["null", "string"], "default": null },
+    { "name": "after",       "type": ["null", "string"], "default": null },
+    { "name": "lsn",         "type": ["null", "long"],   "default": null },
+    { "name": "occurredAt",  "type": "long" },
+    { "name": "year",        "type": "string" },
+    { "name": "month",       "type": "string" },
+    { "name": "day",         "type": "string" }
+  ]
+}

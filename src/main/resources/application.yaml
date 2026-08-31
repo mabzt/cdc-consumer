@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: cdc-consumer
+  kafka:
+    bootstrap-servers: localhost:9092
+    properties:
+      schema.registry.url: http://localhost:8081
+    consumer:
+      group-id: audit-log-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+      properties:
+        specific.avro.reader: false
+        schema.registry.url: http://localhost:8081
+
+server:
+  port: 9998
+
+aws:
+  s3:
+    endpoint: http://localhost:9000
+    region: af-south-1
+    access-key: minioadmin
+    secret-key: minioadmin
+
+audit:
+  s3:
+    bucketName: audit-bucket
+    prefix: audit
+    flush-size: 1000
+    flush-interval: 0 */15 * * * *
+
+kind: Application
